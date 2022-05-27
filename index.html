@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+
+    <style>
+        h1{
+            color:red;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <h1>Mi primera clase práctica de DOM</h1>
+
+    <p>Haciendo pruebas con JavaScript</p>
+    
+    <!--Lista HTML-->
+    <ul id="ListaTareas">
+
+    </ul>
+        
+        <script type="text/javascript">
+
+            // Con el selector getElementsByTagName cojo la posicion de la etiqueta p
+            var parrafo = document.getElementsByTagName('p');
+
+            // Le doy a la etiqueta p que ocupa la posicion 0 estilos.
+            parrafo[0].style.color ='blue';
+            parrafo[0].style.background = 'yellow';
+
+            // Creo un array de tareas
+            var tareas=[
+                "Hacer la colada",
+                "Hacer la comida",
+                "Hacer la cama",
+            ];
+
+            //Con el selector querySelector selecciono la clase listaTareas de la lista y creo la variable de JS llamada listaJS
+            var listaJS = document.querySelector('#ListaTareas');
+            console.log (listaJS);
+
+            // Para recorrer el array de tareas lo hago mendiante un bucle for
+            for (var i = 0; i<tareas.length; i ++){
+
+                // Creo la variable tarea que va a tener el contenido de cada tarea del array
+                var tarea = tareas[i];
+
+                // Mediante el metodo document.createElement('li') creo una etiqueta li dentro de la ul del HTML y creo mi variable en JS llamada li.
+                var li = document.createElement('li');
+
+                // A mi variable li le añado el contenido de cada tarea
+                li.textContent = tarea;
+
+                //A cada elemento li le añado un identificador #
+                li.id = ('elemento'+i);
+
+                // A la lista HTML le agrego las etiquetas hijo li.
+                listaJS.appendChild(li);
+
+            }
+            // Asigno a la variable el id del elemento HTML
+            var elementoAEliminar = document.getElementById('elemento2');
+
+            // Elimino el elemento de la lista
+            listaJS.removeChild(elementoAEliminar);
+        </script>
+</body>
+</html>
